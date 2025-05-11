@@ -5,11 +5,11 @@
 #include <algorithm>  // Lai izmantotu find() funkciju
 #include <cctype>     // Lai izmantotu toupper() funkciju
 #include <string>     // Lai izmantotu string klasi
-
+#include <limits>     // Lai attīrītu nederīgu ievadi 
 
 using namespace std;
 
-// Funkcija, lai zîmçtu karatavas atkarîbâ no kïûdu skaita
+// Funkcija, lai zīmētu karātavas atkarībā no kļūdu skaita
 void zimeKaratavas(int kludas) {
     cout << "  _______" << endl;
     cout << "  |     |" << endl;
@@ -22,7 +22,7 @@ void zimeKaratavas(int kludas) {
         cout << " ";
     cout << endl;
 
-    // Íermenis un rokas
+    // Ķermenis un rokas
     cout << "  |    ";
     if (kludas > 2)
         cout << "/";
@@ -40,7 +40,7 @@ void zimeKaratavas(int kludas) {
         cout << " ";
     cout << endl;
 
-    // Kâjas
+    // Kājas
     cout << "  |    ";
     if (kludas > 4)
         cout << "/";
@@ -56,39 +56,63 @@ void zimeKaratavas(int kludas) {
     cout << " __|__" << endl << endl;
 }
 
-// Funkcija, lai izvçlçtos nejauðu vârdu
+// Funkcija, lai izvēlētos nejaušu vārdu
 string izveletiesNejausuVardu() {
     vector<string> vardi = {
-        "PROGRAMME", "KARATAVAS", "DATORS", "STUDENTS", "SKOLA", "AUKSNE","AUKS", "PUTNS", "ZIEDS", "KALNS",
-        "GAISMA", "TILTS", "MAJA", "GRAMATA", "PILSETA", "GADS", "GADIJUMS", "BALTS", "MELNS", "ZALS",
-        "SARKANS", "DZELTENA", "LIELS", "MAZS", "GARS", "SKOLA", "CILVEKS", "PRIEKS", "KAKIS", "SUNS", "UGUNS",
-        "JURA", "LAPA", "SNIEGS", "MEZS", "KRASTS", "PATS", "MATE", "TEVS", "BRALIS", "MASA", "BERNS",
-        "DARBS", "SKATS", "PUTENIS", "VASARA", "ZIEMA", "RUDENS", "PAVASARIS", "ZVAIGZNE", "DEBESIS",
-        "SAULAINS", "MENESS", "PEDAS", "CELS", "KOKS", "ZEME", "JAKA", "ZEKES", "KURPES", "DIENA", "NAKTIS",
-        "MIERS", "DABA", "LAIME", "EDA", "DZIVIBA", "SIRDS", "GAISMA", "SAULE", "TUMSAS", "UGUNS", "RÎTS",
-        "KRESLA", "KRASA", "LIELUMS", "MAZUMS", "STUNDAS", "BRIDIS", "MINUTE", "SKAITLIS", "PULSS",
-        "STUNDA", "SKAITITAIS", "PLANOTS", "TRAKS", "MIERIGS", "EKSAMENS", "TESTS", "SKOLAS", "PRAKSE",
-        "UZDEVUMS", "ATSKAITE", "DELS", "MEITA", "VECAKS", "RADINIEKS", "BRALA", "MATES", "DZIVE", "GADS",
-        "NEPIECIESAMIBA", "PARBAUDE", "PILSETA", "PIENEMSANA", "NOTIKUMS"
+        "PROGRAMME", "KARATAVAS", "DATORS", "STUDENTS", "SKOLA", "AUKSNE", "AUKS", "PUTNS", "ZIEDS", "KALNS",
+        "GAISMA", "TILTS", "MAJA", "GRAMATA", "PILSETA", "GADS", "GADIJUMS", "BALTS", "MELNS", "ZALS"
     };
 
     srand(time(0));
-
     return vardi[rand() % vardi.size()];
 }
 
-void spelet() {
+// Funkcija, lai pārbaudītu spēlētāju skaita ievadi
+int ievadiSpeletajuSkaitu() {
     int speletajuSkaits;
-    string vards;
+    do {
+        cout << "Izvelaties speletaju skaitu (1 vai 2): ";
+        cin >> speletajuSkaits;
 
-    cout << "Izvelaties speletaju skaitu (1 vai 2): ";
-    cin >> speletajuSkaits;
+        if (cin.fail() || (speletajuSkaits != 1 && speletajuSkaits != 2)) {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "Nepareiza ievade! Ludzu, ievadiet ciparu 1 vai 2." << endl;
+        }
+    } while (speletajuSkaits != 1 && speletajuSkaits != 2);
+    return speletajuSkaits;
+}
+
+// Funkcija, lai pareizi ievadītu burtu
+char ievadiBurtu() {
+    string ievade;
+    char burts;
+
+    do {
+        cout << "Ievadi burtu: ";
+        cin >> ievade;
+
+        if (ievade.length() != 1 || !isalpha(ievade[0])) {
+            cout << "Nepareiza ievade! Ludzu, ievadi tikai vienu burtu." << endl;
+            continue;
+        }
+
+        burts = toupper(ievade[0]); 
+        break;
+    } while (true);
+
+    return burts;
+}
+
+void spelet() {
+    int speletajuSkaits = ievadiSpeletajuSkaitu();
+    string vards;
 
     if (speletajuSkaits == 2) {
         cout << "1. speletajs, ievadi minamo vardu (lielajiem burtiem): ";
         cin >> vards;
 
-        cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
+               cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
              << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
 
         cout << "2. speletajs, vari sakt minet vardu!" << endl;
@@ -107,14 +131,9 @@ void spelet() {
         cout << "Meginatie burti: ";
 
         for (char x : minetieBurti) cout << x << " ";
-
         cout << endl;
 
-        char burts;
-        cout << "Ievadi burtu: ";
-        cin >> burts;
-
-        burts = toupper(burts);
+        char burts = ievadiBurtu(); // Izsauc ievades funkciju
 
         if (find(minetieBurti.begin(), minetieBurti.end(), burts) != minetieBurti.end()) {
             cout << "Tu jau meginaji so burtu!" << endl;
@@ -122,7 +141,6 @@ void spelet() {
         }
 
         minetieBurti.push_back(burts);
-
         bool atrasts = false;
 
         for (int i = 0; i < vards.length(); i++) {
@@ -154,13 +172,23 @@ int main() {
     do {
         spelet();
 
-        cout << "Spelet velreiz? (J/N): ";
-        cin >> atkal;
+        do {
+            cout << "Spelet velreiz? (J/N): ";
+            cin >> atkal;
+            atkal = toupper(atkal);
 
-        atkal = toupper(atkal);
+            if (cin.fail() || (atkal != 'J' && atkal != 'N')) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Nepareiza ievade! Ludzu, ievadi 'J' lai spēlētu vēlreiz vai 'N' lai izietu." << endl;
+            }
+        } while (atkal != 'J' && atkal != 'N');
+
     } while (atkal == 'J');
 
     cout << "Paldies par speli!" << endl;
 
     return 0;
 }
+
+
