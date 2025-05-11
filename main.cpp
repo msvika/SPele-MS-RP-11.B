@@ -1,14 +1,15 @@
-#include <iostream>   // For input and output operations
-#include <vector>     // For using vectors
-#include <cstdlib>    // For srand() and rand()
-#include <ctime>      // For time() to seed the random number generator
-#include <algorithm>  // For using find()
-#include <cctype>     // For using toupper() function
-#include <string>     // For using string class
+#include <iostream>   // Ievades un izvades operƒÅcijƒÅm
+#include <vector>     // Lai izmantotu vektorus
+#include <cstdlib>    // FunkcijƒÅm srand() un rand()
+#include <ctime>      // Funkcijai time(), lai inicializƒìtu gadƒ´juma skaitƒºu ƒ£eneratoru
+#include <algorithm>  // Lai izmantotu find() funkciju
+#include <cctype>     // Lai izmantotu toupper() funkciju
+#include <string>     // Lai izmantotu string klasi
+
 
 using namespace std;
 
-// Funkcija, lai zÓmÁtu karatavas atkarÓb‚ no kÔ˚du skaita
+// Funkcija, lai z√Æm√ßtu karatavas atkar√Æb√¢ no k√Ø√ªdu skaita
 void zimeKaratavas(int kludas) {
     cout << "  _______" << endl;
     cout << "  |     |" << endl;
@@ -21,7 +22,7 @@ void zimeKaratavas(int kludas) {
         cout << " ";
     cout << endl;
 
-    // Õermenis un rokas
+    // √çermenis un rokas
     cout << "  |    ";
     if (kludas > 2)
         cout << "/";
@@ -39,7 +40,7 @@ void zimeKaratavas(int kludas) {
         cout << " ";
     cout << endl;
 
-    // K‚jas
+    // K√¢jas
     cout << "  |    ";
     if (kludas > 4)
         cout << "/";
@@ -55,7 +56,7 @@ void zimeKaratavas(int kludas) {
     cout << " __|__" << endl << endl;
 }
 
-// Funkcija, lai izvÁlÁtos nejauu v‚rdu
+// Funkcija, lai izv√ßl√ßtos nejau√∞u v√¢rdu
 string izveletiesNejausuVardu() {
     vector<string> vardi = {
         "PROGRAMME", "KARATAVAS", "DATORS", "STUDENTS", "SKOLA", "AUKSNE","AUKS", "PUTNS", "ZIEDS", "KALNS",
@@ -64,7 +65,7 @@ string izveletiesNejausuVardu() {
         "JURA", "LAPA", "SNIEGS", "MEZS", "KRASTS", "PATS", "MATE", "TEVS", "BRALIS", "MASA", "BERNS",
         "DARBS", "SKATS", "PUTENIS", "VASARA", "ZIEMA", "RUDENS", "PAVASARIS", "ZVAIGZNE", "DEBESIS",
         "SAULAINS", "MENESS", "PEDAS", "CELS", "KOKS", "ZEME", "JAKA", "ZEKES", "KURPES", "DIENA", "NAKTIS",
-        "MIERS", "DABA", "LAIME", "EDA", "DZIVIBA", "SIRDS", "GAISMA", "SAULE", "TUMSAS", "UGUNS", "RŒTS",
+        "MIERS", "DABA", "LAIME", "EDA", "DZIVIBA", "SIRDS", "GAISMA", "SAULE", "TUMSAS", "UGUNS", "R√éTS",
         "KRESLA", "KRASA", "LIELUMS", "MAZUMS", "STUNDAS", "BRIDIS", "MINUTE", "SKAITLIS", "PULSS",
         "STUNDA", "SKAITITAIS", "PLANOTS", "TRAKS", "MIERIGS", "EKSAMENS", "TESTS", "SKOLAS", "PRAKSE",
         "UZDEVUMS", "ATSKAITE", "DELS", "MEITA", "VECAKS", "RADINIEKS", "BRALA", "MATES", "DZIVE", "GADS",
