@@ -119,6 +119,7 @@ void spelet() {
     if (speletajuSkaits == 2) {
         cout << "1. speletajs, ievadi minamo vardu (lielajiem burtiem): ";
         cin >> vards;
+        for ( auto &c : vards ) c = toupper( c );
 
                cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
              << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
@@ -198,5 +199,4 @@ int main() {
 
     return 0;
 }
-
 
