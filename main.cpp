@@ -60,7 +60,15 @@ void zimeKaratavas(int kludas) {
 string izveletiesNejausuVardu() {
     vector<string> vardi = {
         "PROGRAMME", "KARATAVAS", "DATORS", "STUDENTS", "SKOLA", "AUKSNE", "AUKS", "PUTNS", "ZIEDS", "KALNS",
-        "GAISMA", "TILTS", "MAJA", "GRAMATA", "PILSETA", "GADS", "GADIJUMS", "BALTS", "MELNS", "ZALS"
+        "GAISMA", "TILTS", "MAJA", "GRAMATA", "PILSETA", "GADS", "GADIJUMS", "BALTS", "MELNS", "ZALS", "SARKANS", "DZELTENA", "LIELS", "MAZS", "GARS", "SKOLA", "CILVEKS", "PRIEKS", "KAKIS", "SUNS", "UGUNS",
+        "JURA", "LAPA", "SNIEGS", "MEZS", "KRASTS", "PATS", "MATE", "TEVS", "BRALIS", "MASA", "BERNS",
+        "DARBS", "SKATS", "PUTENIS", "VASARA", "ZIEMA", "RUDENS", "PAVASARIS", "ZVAIGZNE", "DEBESIS",
+        "SAULAINS", "MENESS", "PEDAS", "CELS", "KOKS", "ZEME", "JAKA", "ZEKES", "KURPES", "DIENA", "NAKTIS",
+        "MIERS", "DABA", "LAIME", "EDA", "DZIVIBA", "SIRDS", "GAISMA", "SAULE", "TUMSAS", "UGUNS", "RÎTS",
+        "KRESLA", "KRASA", "LIELUMS", "MAZUMS", "STUNDAS", "BRIDIS", "MINUTE", "SKAITLIS", "PULSS",
+        "STUNDA", "SKAITITAIS", "PLANOTS", "TRAKS", "MIERIGS", "EKSAMENS", "TESTS", "SKOLAS", "PRAKSE",
+        "UZDEVUMS", "ATSKAITE", "DELS", "MEITA", "VECAKS", "RADINIEKS", "BRALA", "MATES", "DZIVE", "GADS",
+        "NEPIECIESAMIBA", "PARBAUDE", "PILSETA", "PIENEMSANA", "NOTIKUMS"
     };
 
     srand(time(0));
